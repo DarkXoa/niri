@@ -1,0 +1,30 @@
+input {
+    keyboard {
+        xkb {
+            layout "us" // Use the German keyboard layout
+            options "caps:super"
+        }
+        numlock // Enable numlock on startup
+    }
+
+    // touchpad {
+    //     tap // Enable tap-to-click
+    //     natural-scroll // Enable natural (macOS-style) scrolling
+    //     scroll-method "two-finger"
+    // }
+
+    mouse {
+           scroll-method "on-button-down"
+           scroll-factor 1
+    }
+
+    focus-follows-mouse // Automatically focus windows under the mouse pointer
+    workspace-auto-back-and-forth // Enable workspace back & forth switching
+}
+
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}

@@ -1,0 +1,88 @@
+// ────────── Window / Layer Rules ──────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+    window-rule {
+        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+        open-floating true // Always float Firefox PiP windows
+    }
+
+    window-rule {
+        match app-id="zed"
+        default-column-width {}
+        default-window-height {}
+    }
+
+    window-rule {
+        geometry-corner-radius 4 // Set every window radius to 20
+        clip-to-geometry true
+    }
+
+    window-rule {
+        match is-active=true
+        opacity 0.9
+        draw-border-with-background false
+    }
+
+    window-rule {
+        match is-active=false
+        opacity 0.8
+    }
+
+    window-rule {
+        match app-id="mirage"
+        opacity 1.0
+    }
+
+    window-rule {
+        match app-id="qalculate"
+        open-floating true
+        opacity 0.95
+        default-column-width { fixed 960; }
+        default-window-height { fixed 720; }
+        open-focused true
+    }
+
+    window-rule {
+        match app-id="discord"
+        open-on-workspace "2"
+        default-column-width { proportion 0.66667; }
+    }
+
+    window-rule {
+        match app-id="spotify"
+        open-on-workspace "2"
+        default-column-width { proportion 0.33333; }
+    }
+
+    window-rule {
+        match app-id="steam"
+        open-on-workspace "3"
+        open-maximized true
+    }
+
+    window-rule {
+        match app-id="steam" title="^notificationtoasts"
+        open-focused false
+        default-floating-position x=8 y=8 relative-to="bottom-right"
+        block-out-from "screencast"
+    }
+
+    window-rule {
+        match title="^BizHawk"
+        default-column-width { fixed 1742; }
+    }
+
+    window-rule {
+        match title="^TAStudio"
+        default-column-width { fixed 591; }
+    }
+
+    window-rule {
+        match title="^RAM Watch"
+        default-column-width { fixed 344; }
+    }
+
+    layer-rule {
+        match namespace="^noctalia-overview*"
+        place-within-backdrop true
+    }
