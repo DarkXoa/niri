@@ -7,11 +7,11 @@ input {
         numlock // Enable numlock on startup
     }
 
-    // touchpad {
-    //     tap // Enable tap-to-click
-    //     natural-scroll // Enable natural (macOS-style) scrolling
-    //     scroll-method "two-finger"
-    // }
+     touchpad {
+         tap // Enable tap-to-click
+         natural-scroll // Enable natural (macOS-style) scrolling
+         scroll-method "two-finger"
+     }
 
     mouse {
            scroll-method "on-button-down"

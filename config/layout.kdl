@@ -2,23 +2,24 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
     layout {
-        gaps 8 // Gap between windows
+        gaps 4 // Gap between windows
         center-focused-column "never" // Don’t auto-center focused column
         always-center-single-column
 
         preset-column-widths {
-            proportion 0.16667
+            // proportion 0.16667
             proportion 0.33333
             proportion 0.5
             proportion 0.66667
+            proportion 1.0
         }
 
     default-column-width { proportion 0.66667; }
 
         focus-ring {
-            width 1
-            active-color "#85a6af"
-            inactive-color "#505050"
+            width 2
+            active-gradient from="#0DB7D4" to="#9778D0" angle=90
+            inactive-color "#04404A"
         }
 
         shadow {
@@ -29,9 +30,9 @@
         }
 
         struts {
-            // left 8
-            // right 8
-            // top 8
-            // bottom 8
+            left 2
+            right 2
+            top 2
+            bottom 2
         }
     }

@@ -3,7 +3,14 @@
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 
+// Desktop
 /- output "DP-3" {
     mode "3440x1440@240.085" // Set resolution and refresh rate
+    scale 1 // No scaling (use 2 for HiDPI)
+}
+
+// Laptop
+output "eDP-1" {
+    mode "1920x1080@60.045" // Set resolution and refresh rate
     scale 1 // No scaling (use 2 for HiDPI)
 }

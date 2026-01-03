@@ -13,7 +13,7 @@
     }
 
     window-rule {
-        geometry-corner-radius 4 // Set every window radius to 20
+        geometry-corner-radius 20 // Set every window radius to 20
         clip-to-geometry true
     }
 
@@ -83,6 +83,6 @@
     }
 
     layer-rule {
-        match namespace="^noctalia-overview*"
+        match namespace="^overview*"
         place-within-backdrop true
     }
