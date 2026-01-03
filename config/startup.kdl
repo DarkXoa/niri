@@ -7,9 +7,9 @@
     // spawn-sh-at-startup "swww img /home/darkxoa/Pictures/wp13243887.jpg" // Set wallpaper
     // spawn-sh-at-startup "waybar" // Launch waybar
     spawn-at-startup "systemctl" "--user" "enable" "--now" "hypridle"
-    spawn-at-startup "qs" "-c" "noctalia-shell"
-    spawn-sh-at-startup "flatpak run io.githuv.spacingbat3.webcord"
-    spawn-sh-at-startup "flatpak run com.spotify.Client"
+    spawn-at-startup "noctalia-shell"
+    spawn-sh-at-startup "webcord"
+    spawn-sh-at-startup "spotify"
     // spawn-sh-at-startup "steam"
 
     prefer-no-csd // Disable program decorations
