@@ -2,18 +2,7 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
     window-rule {
-        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-        open-floating true // Always float Firefox PiP windows
-    }
-
-    window-rule {
-        match app-id="zed"
-        default-column-width {}
-        default-window-height {}
-    }
-
-    window-rule {
-        geometry-corner-radius 4 // Set every window radius to 20
+        geometry-corner-radius 15 // Set every window radius to 20
         clip-to-geometry true
     }
 
@@ -29,41 +18,53 @@
     }
 
     window-rule {
-        match app-id="mirage"
-        opacity 1.0
-    }
-
-    window-rule {
-        match app-id="qalculate"
-        open-floating true
-        opacity 0.95
-        default-column-width { fixed 960; }
-        default-window-height { fixed 720; }
-        open-focused true
+        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+        open-floating true // Always float Firefox PiP windows
     }
 
     window-rule {
         match app-id="discord"
-        open-on-workspace "2"
-        default-column-width { proportion 0.66667; }
+        open-on-output "DP-2"
     }
 
     window-rule {
         match app-id="spotify"
+        open-on-output "DP-2"
+    }
+
+    window-rule {
+        match app-id="altus"
+        open-on-output "DP-2"
         open-on-workspace "2"
-        default-column-width { proportion 0.33333; }
+    }
+
+    window-rule {
+        match app-id="signal-desktop"
+        open-on-output "DP-2"
+        open-on-workspace "2"
+    }
+
+    window-rule {
+        match app-id="betterbird"
+        open-on-output "DP-2"
+        open-on-workspace "2"
     }
 
     window-rule {
         match app-id="steam"
+        open-on-output "DP-2"
         open-on-workspace "3"
-        open-maximized true
+    }
+
+    window-rule {
+        match app-id="steam_app_"
+        open-on-output "DP-3"
     }
 
     window-rule {
         match app-id="steam" title="^notificationtoasts"
         open-focused false
-        default-floating-position x=8 y=8 relative-to="bottom-right"
+        default-floating-position x=8 y=8 relative-to="top-right"
         block-out-from "screencast"
     }
 
@@ -82,7 +83,7 @@
         default-column-width { fixed 344; }
     }
 
-    layer-rule {
-        match namespace="^noctalia-overview*"
-        place-within-backdrop true
+    window-rule {
+        match app-id="librewolf" title=r#"^Twitch*"#
+        opacity 1.0
     }

@@ -2,14 +2,15 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
-    spawn-sh-at-startup "niri-scratchpad daemon"
-    //spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    //spawn-sh-at-startup "swww img /home/darkxoa/Pictures/wp13243887.jpg" // Set wallpaper
-    //spawn-sh-at-startup "waybar" // Launch waybar
-    spawn-at-startup "qs" "-c" "noctalia-shell"
-    spawn-sh-at-startup "discord"
-    spawn-sh-at-startup "spotify"
-    spawn-sh-at-startup "steam"
+    spawn-sh-at-startup "webcord &"
+    spawn-sh-at-startup "spotify &"
+    spawn-sh-at-startup "steam &"
+    spawn-sh-at-startup "betterbird &"
+    spawn-sh-at-startup "signal-desktop &"
+    spawn-sh-at-startup "altus &"
+    spawn-sh-at-startup "mullvad-vpn &"
+    spawn-sh-at-startup "protonmail-bridge &"
+    spawn-sh-at-startup "proton-pass &"
 
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving

@@ -7,16 +7,15 @@
         always-center-single-column
 
         preset-column-widths {
-            proportion 0.16667
             proportion 0.33333
             proportion 0.5
             proportion 0.66667
         }
 
-    default-column-width { proportion 0.66667; }
+    default-column-width { proportion 0.5; }
 
         focus-ring {
-            width 1
+            width 2
             active-color "#85a6af"
             inactive-color "#505050"
         }
@@ -29,9 +28,14 @@
         }
 
         struts {
-            // left 8
-            // right 8
-            // top 8
-            // bottom 8
+            left -4
+            right -4
+            top -4
+            bottom -4
         }
+    }
+
+    cursor {
+        xcursor-theme "capitaine-cursors"
+        xcursor-size 24
     }

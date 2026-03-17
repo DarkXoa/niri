@@ -2,7 +2,7 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
     environment {
-        DISPLAY ":1"
+        DISPLAY ":2"
         ELECTRON_OZONE_PLATFORM_HINT "auto"
         QT_QPA_PLATFORM "wayland"
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
@@ -10,12 +10,7 @@
         XDG_CURRENT_DESKTOP "niri"
         QT_STYLE_OVERRIDE "kvantum"
         QT_QPA_PLATFORMTHEME "qt6ct"
-        GTK_THEME "Breeze-Noir-Dark-GTK"
         XDG_MENU_PREFIX "arch- kbuildsycoca6 --noincremental"
-    }
-
-    clipboard {
-        disable-primary
     }
 
     hotkey-overlay {

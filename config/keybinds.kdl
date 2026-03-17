@@ -2,15 +2,71 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
 
 binds {
-    MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
+    MOD+SHIFT+ESCAPE                    { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
-    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: noctalia" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: mullvad-browser" { spawn-sh "mullvad-browser"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty"; }
+    MOD+E                               hotkey-overlay-title="File Manager: Dolphin" { spawn-sh "dolphin"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: librewolf" { spawn-sh "librewolf"; }
+    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: dms" { spawn-sh "dms ipc call spotlight toggle"; }
+    MOD+V                               hotkey-overlay-title="Open Clipboard" { spawn-sh "dms ipc call clipboard toggle"; }
+    ALT+TAB                             repeat=false { toggle-overview; }
 
-    // Please choose your own file manager
-    MOD+E                             hotkey-overlay-title="File Manager: Dolphin" { spawn-sh "dolphin"; }
+    // ─── Window Movement and Focus ───
+    MOD+Q                               { close-window; }
+
+    MOD+A                               { focus-column-left; }
+    MOD+D                               { focus-column-right; }
+    MOD+W                               { focus-window-up; }
+    MOD+S                               { focus-window-down; }
+    MOD+SHIFT+A                         { consume-or-expel-window-left; }
+    MOD+SHIFT+D                         { consume-or-expel-window-right; }
+
+    MOD+ALT+A                           { move-column-left; }
+    MOD+ALT+D                           { move-column-right; }
+    MOD+ALT+W                           { move-window-up; }
+    MOD+ALT+S                           { move-window-down; }
+
+    MOD+HOME                            { focus-column-first; }
+    MOD+END                             { focus-column-last; }
+    MOD+ALT+HOME                        { move-column-to-first; }
+    MOD+ALT+END                         { move-column-to-last; }
+
+    MOD+SHIFT+ALT+A                     { move-column-to-monitor-left; }
+    MOD+SHIFT+ALT+D                     { move-column-to-monitor-right; }
+
+    // ─── Workspace Switching ───
+    MOD+SHIFT+WHEELSCROLLDOWN           { focus-workspace-down; }
+    MOD+SHIFT+WHEELSCROLLUP             { focus-workspace-up; }
+    MOD+SHIFT+ALT+S                     { move-column-to-workspace-down; }
+    MOD+SHIFT+ALT+W                     { move-column-to-workspace-up; }
+    MOD+SHIFT+ALT+WHEELSCROLLDOWN       { move-column-to-workspace-down; }
+    MOD+SHIFT+ALT+WHEELSCROLLUP         { move-column-to-workspace-up; }
+
+    MOD+WHEELSCROLLDOWN                 { focus-column-right; }
+    MOD+WHEELSCROLLUP                   { focus-column-left; }
+    MOD+ALT+WHEELSCROLLDOWN             { move-column-right; }
+    MOD+ALT+WHEELSCROLLUP               { move-column-left; }
+
+    //MOD+TAB                             { spawn "niri-scratchpad" "create" "1"; }
+
+    // ─── Layout Controls ───
+    MOD+ALT+F                           { expand-column-to-available-width; }
+    MOD+C                               { center-column; }
+    MOD+ALT+C                           { center-visible-columns; }
+
+    // ─── Modes ───
+    MOD+T                               { toggle-window-floating; }
+    Mod+R                               { switch-preset-column-width; }
+    Mod+ALT+R                           { reset-window-height; }
+    Mod+SHIFT+F                         { fullscreen-window; }
+    Mod+F                               { maximize-column; }
+
+    // ─── Screenshots ───
+    MOD+SHIFT+S                         { screenshot; }
+    //SHIFT+Caps+S                      { screenshot write-to-disk=false; }
+    PRINT                               { screenshot-screen write-to-disk=false; }
+    ALT+PRINT                           { screenshot-window write-to-disk=false; }
 
     // ─── Audio Controls ───
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -24,98 +80,6 @@ binds {
     XF86AudioPlay                       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev                       allow-when-locked=true { spawn-sh "playerctl previous"; }
 
-    // ─── Window Movement and Focus ───
-    MOD+Q                               { close-window; }
-
-    MOD+LEFT                            { focus-column-left; }
-    MOD+RIGHT                           { focus-column-right; }
-    MOD+UP                              { focus-window-up; }
-    MOD+DOWN                            { focus-window-down; }
-    MOD+SHIFT+LEFT                      { consume-or-expel-window-left; }
-    MOD+SHIFT+RIGHT                     { consume-or-expel-window-right; }
-
-    MOD+ALT+LEFT                        { move-column-left; }
-    MOD+ALT+H                           { move-column-left; }
-    MOD+ALT+RIGHT                       { move-column-right; }
-    MOD+ALT+L                           { move-column-right; }
-    MOD+ALT+UP                          { move-window-up; }
-    MOD+ALT+K                           { move-window-up; }
-    MOD+ALT+DOWN                        { move-window-down; }
-    MOD+ALT+J                           { move-window-down; }
-
-    MOD+HOME                            { focus-column-first; }
-    MOD+END                             { focus-column-last; }
-    MOD+ALT+HOME                        { move-column-to-first; }
-    MOD+ALT+END                         { move-column-to-last; }
-
-    MOD+SHIFT+ALT+LEFT                  { move-column-to-monitor-left; }
-    MOD+SHIFT+ALT+RIGHT                 { move-column-to-monitor-right; }
-    MOD+SHIFT+ALT+UP                    { move-column-to-monitor-up; }
-    MOD+SHIFT+ALT+DOWN                  { move-column-to-monitor-down; }
-
-    // ─── Workspace Switching ───
-    MOD+SHIFT+DOWN                      cooldown-ms=150 { focus-workspace-down; }
-    MOD+SHIFT+UP                        cooldown-ms=150 { focus-workspace-up; }
-    MOD+SHIFT+WHEELSCROLLDOWN           cooldown-ms=150 { focus-workspace-down; }
-    MOD+SHIFT+WHEELSCROLLUP             cooldown-ms=150 { focus-workspace-up; }
-    MOD+SHIFT+ALT+WHEELSCROLLDOWN       cooldown-ms=150 { move-column-to-workspace-down; }
-    MOD+SHIFT+ALT+WHEELSCROLLUP         cooldown-ms=150 { move-column-to-workspace-up; }
-
-    MOD+WHEELSCROLLRIGHT                { focus-column-right; }
-    MOD+WHEELSCROLLLEFT                 { focus-column-left; }
-    MOD+ALT+WHEELSCROLLRIGHT            { move-column-right; }
-    MOD+ALT+WHEELSCROLLLEFT             { move-column-left; }
-
-    MOD+WHEELSCROLLDOWN                 { focus-column-right; }
-    MOD+WHEELSCROLLUP                   { focus-column-left; }
-    MOD+ALT+WHEELSCROLLDOWN             { move-column-right; }
-    MOD+ALT+WHEELSCROLLUP               { move-column-left; }
-
-    MOD+1                               { focus-workspace 1; }
-    MOD+2                               { focus-workspace 2; }
-    MOD+3                               { focus-workspace 3; }
-    MOD+4                               { focus-workspace 4; }
-    MOD+5                               { focus-workspace 5; }
-    MOD+6                               { focus-workspace 6; }
-    MOD+7                               { focus-workspace 7; }
-    MOD+8                               { focus-workspace 8; }
-    MOD+9                               { focus-workspace 9; }
-
-    MOD+ALT+1                           { move-column-to-workspace 1; }
-    MOD+ALT+2                           { move-column-to-workspace 2; }
-    MOD+ALT+3                           { move-column-to-workspace 3; }
-    MOD+ALT+4                           { move-column-to-workspace 4; }
-    MOD+ALT+5                           { move-column-to-workspace 5; }
-    MOD+ALT+6                           { move-column-to-workspace 6; }
-    MOD+ALT+7                           { move-column-to-workspace 7; }
-    MOD+ALT+8                           { move-column-to-workspace 8; }
-    MOD+ALT+9                           { move-column-to-workspace 9; }
-
-    //MOD+TAB                             { spawn "niri-scratchpad" "create" "1"; }
-
-    // ─── Layout Controls ───
-    MOD+ALT+F                           { expand-column-to-available-width; }
-    MOD+C                               { center-column; }
-    MOD+ALT+C                           { center-visible-columns; }
-    MOD+MINUS                           { set-column-width "-10%"; }
-    MOD+EQUAL                           { set-column-width "+10%"; }
-    MOD+SHIFT+MINUS                     { set-window-height "-10%"; }
-    MOD+SHIFT+EQUAL                     { set-window-height "+10%"; }
-
-    // ─── Modes ───
-    MOD+T                               { toggle-window-floating; }
-    Mod+R                               { switch-preset-column-width; }
-    Mod+ALT+R                           { reset-window-height; }
-    Mod+SHIFT+F                         { fullscreen-window; }
-    Mod+F                               { maximize-column; }
-    MOD+W                               { toggle-column-tabbed-display; }
-
-    // ─── Screenshots ───
-    MOD+SHIFT+S                         { screenshot; }
-    //SHIFT+Caps+S                      { screenshot write-to-disk=false; }
-    PRINT                               { screenshot-screen write-to-disk=false; }
-    ALT+PRINT                           { screenshot-window write-to-disk=false; }
-
     // ─── Emergency Escape Key ───
     // Use this when a fullscreen app blocks your keybinds.
     // It disables any active keyboard shortcut inhibitor, restoring control.
@@ -124,5 +88,4 @@ binds {
     // ─── Exit / Power ───
     CTRL+ALT+DELETE                     { quit; } // Also quits Niri
     MOD+ALT+P                         { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
-    ALT+TAB                             repeat=false { toggle-overview; }
 }
